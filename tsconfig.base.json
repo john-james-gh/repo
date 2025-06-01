@@ -1,21 +1,77 @@
 {
   "compilerOptions": {
+    // Treat this project as a composite project: enables project references and the ability
+    // for other tsconfigs to reference this one. In an Nx monorepo, each lib/app ends up
+    // referencing this base.
     "composite": true,
+
+    // Generate .d.ts.map files alongside .d.ts declarations. These maps help downstream
+    // editors/debuggers point back to the original .ts when you’re consuming types.
     "declarationMap": true,
+
+    // Only emit type declarations (.d.ts files) instead of emitting compiled JavaScript.
+    // In a “build” scenario, Nx will run a separate ‘tsc’ or bundler step to handle the JS.
     "emitDeclarationOnly": true,
+
+    // Instructs TS to import helper functions (like __extends, __assign, __awaiter, etc.)
+    // from the 'tslib' package instead of inlining them into every output file. Keeps your
+    // output leaner and avoids duplicate helper code.
     "importHelpers": true,
+
+    // Enforce that each file is treated as its own module—dissallows mixing TS namespaces with
+    // non-module code. Helps catch stray globals or missing imports.
     "isolatedModules": true,
+
+    // List of built-in library type definitions to include. 'es2022' pulls in
+    // modern JS API typings like Promise, Map, globalThis, etc., matching Node 18+
+    // or modern browsers around that ES version.
     "lib": ["es2022"],
+
+    // Output module format. 'nodenext' tells TS to generate output that matches Node.js’s
+    // “ESM with .js/.ts extension resolution” strategy. If you run code under Node 18+ with
+    // “type": "module" in package.json, this lines up with how Node expects imports/exports.
     "module": "nodenext",
+
+    // How to resolve imports: 'nodenext' mirrors the Node.js ESM loader’s logic (i.e., look
+    // at package.json “exports” / “imports” fields, file extensions, index.js, etc.).
     "moduleResolution": "nodenext",
+
+    // If there's a compile error, prevent outputting any JS (or d.ts). Helps avoid “broken”
+    // builds when someone accidentally leaves a type error in code.
     "noEmitOnError": true,
+
+    // Prevent switch/case fallthrough (i.e., forgetting a break;). Helps catch mistakes in
+    // switch statements where you inadvertently drop through to the next case.
     "noFallthroughCasesInSwitch": true,
+
+    // Require that overrides of base‐class methods explicitly use the 'override' keyword.
+    // This guards against accidental method shadowing in subclasses.
     "noImplicitOverride": true,
+
+    // Force every function to have an explicit return type (or inferable return type). Guards
+    // against accidentally returning different types or forgetting to return in some code paths.
     "noImplicitReturns": true,
+
+    // Error if a local variable is declared but never used. Helps keep code clean of dead variables.
     "noUnusedLocals": true,
+
+    // Skip type‐checking of declaration files (.d.ts). This speeds up compile, especially in
+    // a large monorepo where you trust your third‐party types.
     "skipLibCheck": true,
+
+    // Enable all strict type-checking options: strict null checks, strict function types,
+    // strict property initialization, etc. Usually what you want in a new project for maximum safety.
     "strict": true,
+
+    // Target JavaScript version for emitted code. 'es2022' means TS will emit modern JS
+    // (e.g., top-level await is allowed, etc.). Downstream bundlers or Node will run that code
+    // directly (if your environment supports it).
     "target": "es2022",
+
+    // Custom conditions for conditional imports. By default, TS uses ["import", "require"],
+    // but adding "development" here lets you write:
+    //   import foo from "some-lib" assert { condition: "development" };
+    // for environment‐specific paths. NX’s bundlers might use this to swap dev vs. prod code.
     "customConditions": ["development"]
   }
 }
