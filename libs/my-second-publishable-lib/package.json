@@ -1,6 +1,6 @@
 {
-  "name": "@repo/my-publishable-lib",
-  "version": "0.1.0",
+  "name": "@repo/my-second-publishable-lib",
+  "version": "0.0.2",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

@@ -39,13 +39,19 @@ importers:
         specifier: ^6.0.5
         version: 6.1.2(typanion@3.14.0)
 
+  libs/my-first-publishable-lib:
+    dependencies:
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+
   libs/my-lib:
     dependencies:
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
 
-  libs/my-publishable-lib:
+  libs/my-second-publishable-lib:
     dependencies:
       tslib:
         specifier: ^2.3.0

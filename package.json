@@ -8,10 +8,28 @@
   "private": true,
   "devDependencies": {
     "@nx/js": "21.1.2",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
     "@types/node": "18.16.9",
     "knip": "^5.59.1",
     "nx": "21.1.2",
     "tslib": "^2.3.0",
-    "typescript": "~5.7.3"
+    "typescript": "~5.7.3",
+    "verdaccio": "^6.0.5"
+  },
+  "dependencies": {},
+  "nx": {
+    "includedScripts": [],
+    "targets": {
+      "local-registry": {
+        "executor": "@nx/js:verdaccio",
+        "options": {
+          "port": 4873,
+          "config": ".verdaccio/config.yml",
+          "storage": "tmp/local-registry/storage"
+        }
+      }
+    }
   }
 }

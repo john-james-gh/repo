@@ -5,6 +5,12 @@
   "references": [
     {
       "path": "./libs/my-lib"
+    },
+    {
+      "path": "./libs/my-first-publishable-lib"
+    },
+    {
+      "path": "./libs/my-second-publishable-lib"
     }
   ]
 }
