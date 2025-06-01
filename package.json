@@ -2,14 +2,16 @@
   "name": "@repo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "knip": "knip"
+  },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@nx/js": "21.1.2",
     "@types/node": "18.16.9",
+    "knip": "^5.59.1",
     "nx": "21.1.2",
     "tslib": "^2.3.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.3"
   }
 }
