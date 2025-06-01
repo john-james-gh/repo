@@ -1,0 +1,16 @@
+{
+  // This extends the same base as tsconfig.lib.json.
+  "extends": "../../tsconfig.base.json",
+
+  // We’re not directly compiling anything here—this tsconfig’s sole job is to reference tsconfig.lib.json.
+  "files": [],
+  "include": [],
+
+  // Point to the “real” build config (tsconfig.lib.json). When you run “nx run my-lib:typecheck”,
+  // tsc will pick up tsconfig.lib.json via this reference.
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  // Inherit all the “base” settings (strictness, importHelpers, etc.) from the repo-wide tsconfig.
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Set your module resolution root (so imports can be absolute from the project root).
+    "baseUrl": ".",
+
+    // Where your “source” TS files live.
+    "rootDir": "src",
+
+    // Where compiled JS + declaration files should go.
+    "outDir": "dist",
+
+    // TS incremental build info file (speeds up successive builds).
+    "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
+
+    // For a library build, we want to emit JS + d.ts. So override emitDeclarationOnly = false
+    // (tsconfig.base.json had emitDeclarationOnly: true).
+    "emitDeclarationOnly": false,
+
+    // Enforce consistent casing in imports (helps on case‐sensitive filesystems).
+    "forceConsistentCasingInFileNames": true,
+
+    // Include Node’s type definitions (e.g. Buffer, process, etc.).
+    "types": ["node"]
+  },
+  // Only compile .ts files under src/
+  "include": ["src/**/*.ts"],
+
+  // No extra project references here—this is a standalone lib build.
+  "references": []
+}

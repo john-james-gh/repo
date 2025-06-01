@@ -1,18 +1,10 @@
 {
-  // Inherit all options from tsconfig.base.json. This is where “composite” and all the
-  // compilerOptions live.
   "extends": "./tsconfig.base.json",
-
-  // Don’t automatically recompile TS on each save (we rely on Nx’s daemons / build commands).
   "compileOnSave": false,
-
-  // We’re not listing any files explicitly at the root—every app/lib folder will have its
-  // own tsconfig that references this one.
   "files": [],
-
-  // This empty array is a placeholder. When Nx generates a new library or app, it will add
-  // a reference here like:
-  //   { "path": "libs/my-lib/tsconfig.json" }
-  // so that TS knows the project graph for incremental builds.
-  "references": []
+  "references": [
+    {
+      "path": "./libs/my-lib"
+    }
+  ]
 }
