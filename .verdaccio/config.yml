@@ -1,6 +1,9 @@
 # path to a directory with all packages
 storage: ../tmp/local-registry/storage
 
+# set default registry
+registry: http://localhost:4873/
+
 # a list of other known repositories we can talk to
 uplinks:
   npmjs:
@@ -8,7 +11,7 @@ uplinks:
     maxage: 60m
 
 packages:
-  '**':
+  "**":
     # give all users (including non-authenticated users) full access
     # because it is a local registry
     access: $all
